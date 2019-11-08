@@ -1,12 +1,12 @@
-#Fact 2 Law
+## Fact 2 Law
 use sentence-level classification to extract related label.
 
-#flow
+## flow
 ```buildoutcfg
 sentence --bert-service--> sentence vector --NN model--> class label
 ```
 
-#train
+## train
 ```buildoutcfg
 input: json file folder
 ex:
@@ -19,7 +19,7 @@ folder
 output: model
 ```
 
-#how to use
+## how to use
 ```
 1.start bert-server(bert-serving-client==1.9.8 in your service system)
 bert-serving-start -model_dir chinese_L-12_H-768_A-12/ -num_worker=2
@@ -27,7 +27,7 @@ bert-serving-start -model_dir chinese_L-12_H-768_A-12/ -num_worker=2
 3.run test.py to use your model
 ```
 
-#Ref
+## Ref
 https://github.com/hanxiao/bert-as-service
-#bert model
+## bert model
 https://storage.googleapis.com/bert_models/2018_11_03/chinese_L-12_H-768_A-12.zip
