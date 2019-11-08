@@ -122,7 +122,7 @@ for k in label2data.keys():
     tmp_X += random_generate(label2data[k], max_num)
     tmp_Y += [k for _ in range(max_num)]
 
-# tmp_Y = one_hot_label(tmp_Y, label2id)
+tmp_Y = one_hot_label(tmp_Y, label2id)
 
 train_X = np.asarray(tmp_X)
 train_Y = np.asarray(tmp_Y)
