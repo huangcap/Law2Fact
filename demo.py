@@ -10,7 +10,7 @@ import re
 bc = BertClient()
 model = load_model('law2fact.h')
 
-test = ['我想吃蘋果']
+test = ['康燿則為萬國投信公司募集之「萬國鑽石證券投資信託基金」']
 
 out = model.predict(bc.encode(test))
 print(out)

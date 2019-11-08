@@ -99,9 +99,11 @@ max_num = max([label_count[k] for k in label_count.keys()])
 print('start bert encoding')
 t_X = bc.encode(training_data).tolist()
 
+# balance data by copy data randomly for specific label until number is equal
+# =====
 tmp_X = []
 tmp_Y = []
-# balance data
+
 label2data= {}
 tmp_label2data = {}
 
@@ -121,9 +123,8 @@ for i, x in enumerate(t_X):
 for k in label2data.keys():
     tmp_X += random_generate(label2data[k], max_num)
     tmp_Y += [k for _ in range(max_num)]
-
+# ====
 tmp_Y = one_hot_label(tmp_Y, label2id)
-
 train_X = np.asarray(tmp_X)
 train_Y = np.asarray(tmp_Y)
 
@@ -133,4 +134,4 @@ print(train_Y.shape)
 model = baseline_model(len(label2id))
 model.summary()
 cp = ModelCheckpoint('law2fact.h', monitor='val_loss', save_best_only=True)
-model.fit(train_X, train_Y, epochs=250, batch_size=32, shuffle=True, validation_split=0.1, callbacks=[cp])
+model.fit(train_X, train_Y, epochs=20, batch_size=32, shuffle=True)
